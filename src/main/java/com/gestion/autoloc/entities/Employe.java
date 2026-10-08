@@ -17,10 +17,14 @@ public class Employe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEmploye;
-
     private String nom;
     private String prenom;
 
     @Enumerated(EnumType.STRING)
     private Role role;
+
+    // Association 1 : Agence 1 --> N Employe
+    @ManyToOne
+    @JoinColumn(name = "agence_id")
+    private Agence agence;
 }

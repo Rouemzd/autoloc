@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -18,4 +20,8 @@ public class Equipement {
     private Long idEquipement;
 
     private String libelle;
+
+    // Association 4 : Vehicule N <--> N Equipement (côté inverse)
+    @ManyToMany(mappedBy = "equipements")
+    private List<Vehicule> vehicules;
 }
